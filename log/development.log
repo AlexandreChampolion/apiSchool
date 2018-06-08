@@ -1,0 +1,475 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-06-01 07:07:16.022234"], ["updated_at", "2018-06-01 07:07:16.022234"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-06-01 09:15:44 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (3.2ms)
+Completed 200 OK in 266ms (Views: 9.2ms)
+
+
+  [1m[35m (4.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20180601080533)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (114.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "auth_token" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (123.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180601080533"]]
+  [1m[35m (189.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (7.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/apipie" for 127.0.0.1 at 2018-06-01 16:43:12 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Apipie::ApipiesController#index as HTML
+  Rendering /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie
+  Rendered /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/_languages.erb (0.7ms)
+  Rendered /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie (9.4ms)
+Completed 200 OK in 123ms (Views: 26.0ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2018-06-01 16:43:12 +0200
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2018-06-01 16:43:12 +0200
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2018-06-01 16:43:12 +0200
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2018-06-01 16:43:12 +0200
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2018-06-01 16:43:12 +0200
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2018-06-01 16:43:12 +0200
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2018-06-01 16:43:12 +0200
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2018-06-01 16:43:12 +0200
+Started GET "/apipie" for 127.0.0.1 at 2018-06-01 16:44:29 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Apipie::ApipiesController#index as HTML
+  Rendering /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie
+  Rendered /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/_languages.erb (0.7ms)
+  Rendered /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie (8.3ms)
+Completed 200 OK in 116ms (Views: 23.0ms)
+
+
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2018-06-01 16:44:29 +0200
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2018-06-01 16:44:29 +0200
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2018-06-01 16:44:29 +0200
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2018-06-01 16:44:29 +0200
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2018-06-01 16:44:29 +0200
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2018-06-01 16:44:29 +0200
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2018-06-01 16:44:29 +0200
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2018-06-01 16:44:29 +0200
+Started GET "/apipie" for 127.0.0.1 at 2018-06-01 16:44:30 +0200
+Processing by Apipie::ApipiesController#index as HTML
+  Rendering /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie
+  Rendered /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/_languages.erb (0.4ms)
+  Rendered /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie (6.4ms)
+Completed 200 OK in 60ms (Views: 18.1ms)
+
+
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2018-06-01 16:44:30 +0200
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2018-06-01 16:44:30 +0200
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2018-06-01 16:44:30 +0200
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2018-06-01 16:44:30 +0200
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2018-06-01 16:44:30 +0200
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2018-06-01 16:44:30 +0200
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2018-06-01 16:44:30 +0200
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2018-06-01 16:44:30 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSchoolsTable (20180604071736)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSchoolsTable (20180604071736)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "schools_tables" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "name" varchar, "address" varchar, "zip_code" varchar, "city" varchar, "openings" varchar, "phone" varchar, "email" varchar, "nb_student" integer, "status" varchar, "latitude" float, "longtitude" float)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180604071736"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RenameSchoolTable (20180604082800)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RenameSchoolTable (20180604082800)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RenameSchoolTable (20180604082800)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "schools_tables" RENAME TO "schools"[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180604082800"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/apipie" for 127.0.0.1 at 2018-06-04 16:59:31 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Apipie::ApipiesController#index as HTML
+Completed 500 Internal Server Error in 92ms
+
+
+  
+NoMethodError (undefined method `params' for Api::V1::SchoolsController:Class
+Did you mean?  param):
+  
+app/controllers/api/v1/schools_controller.rb:9:in `<class:SchoolsController>'
+app/controllers/api/v1/schools_controller.rb:1:in `<top (required)>'
+Started GET "/apipie" for 127.0.0.1 at 2018-06-04 16:59:53 +0200
+Processing by Apipie::ApipiesController#index as HTML
+Completed 500 Internal Server Error in 55ms
+
+
+  
+NameError (undefined local variable or method `required' for Api::V1::SchoolsController:Class
+Did you mean?  require):
+  
+app/controllers/api/v1/schools_controller.rb:43:in `<class:SchoolsController>'
+app/controllers/api/v1/schools_controller.rb:1:in `<top (required)>'
+Started GET "/apipie" for 127.0.0.1 at 2018-06-04 17:00:18 +0200
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Apipie::ApipiesController#index as HTML
+Completed 500 Internal Server Error in 80ms
+
+
+  
+NameError (undefined local variable or method `required' for Api::V1::SchoolsController:Class
+Did you mean?  require):
+  
+app/controllers/api/v1/schools_controller.rb:43:in `<class:SchoolsController>'
+app/controllers/api/v1/schools_controller.rb:1:in `<top (required)>'
+Started GET "/apipie" for 127.0.0.1 at 2018-06-04 17:00:50 +0200
+Processing by Apipie::ApipiesController#index as HTML
+  Rendering /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie
+  Rendered /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/_languages.erb (0.8ms)
+  Rendered /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie (8.4ms)
+Completed 200 OK in 106ms (Views: 21.4ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2018-06-04 17:00:50 +0200
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2018-06-04 17:00:50 +0200
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2018-06-04 17:00:50 +0200
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2018-06-04 17:00:50 +0200
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2018-06-04 17:00:50 +0200
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2018-06-04 17:00:50 +0200
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2018-06-04 17:00:50 +0200
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2018-06-04 17:00:51 +0200
+Started GET "/apipie" for 127.0.0.1 at 2018-06-04 17:01:58 +0200
+Processing by Apipie::ApipiesController#index as HTML
+  Rendering /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie
+  Rendered /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/_languages.erb (0.5ms)
+  Rendered /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie (10.3ms)
+Completed 200 OK in 98ms (Views: 24.7ms)
+
+
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2018-06-04 17:01:58 +0200
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2018-06-04 17:01:58 +0200
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2018-06-04 17:01:58 +0200
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2018-06-04 17:01:58 +0200
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2018-06-04 17:01:58 +0200
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2018-06-04 17:01:58 +0200
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2018-06-04 17:01:58 +0200
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2018-06-04 17:01:58 +0200
+Started GET "/apipie/1.0/schools/show.en.html" for 127.0.0.1 at 2018-06-04 17:02:05 +0200
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"schools", "method"=>"show.en.html"}
+  Rendering /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/apipie_404.html.erb within layouts/apipie/apipie
+  Rendered /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/apipie_404.html.erb within layouts/apipie/apipie (1.6ms)
+Completed 404 Not Found in 147ms (Views: 14.8ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2018-06-04 17:02:05 +0200
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2018-06-04 17:02:05 +0200
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2018-06-04 17:02:05 +0200
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2018-06-04 17:02:05 +0200
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2018-06-04 17:02:05 +0200
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2018-06-04 17:02:05 +0200
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2018-06-04 17:02:05 +0200
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2018-06-04 17:02:05 +0200
+Started GET "/apipie/1.0/schools/update.en.html" for 127.0.0.1 at 2018-06-04 17:02:09 +0200
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"schools", "method"=>"update.en.html"}
+  Rendering /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/apipie_404.html.erb within layouts/apipie/apipie
+  Rendered /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/apipie_404.html.erb within layouts/apipie/apipie (1.0ms)
+Completed 404 Not Found in 57ms (Views: 12.4ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2018-06-04 17:02:10 +0200
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2018-06-04 17:02:10 +0200
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2018-06-04 17:02:10 +0200
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2018-06-04 17:02:10 +0200
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2018-06-04 17:02:10 +0200
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2018-06-04 17:02:10 +0200
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2018-06-04 17:02:10 +0200
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2018-06-04 17:02:10 +0200
+Started GET "/apipie/1.0/schools/create.en.html" for 127.0.0.1 at 2018-06-04 17:02:12 +0200
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"schools", "method"=>"create.en.html"}
+  Rendering /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/apipie_404.html.erb within layouts/apipie/apipie
+  Rendered /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/apipie_404.html.erb within layouts/apipie/apipie (0.8ms)
+Completed 404 Not Found in 54ms (Views: 11.0ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2018-06-04 17:02:12 +0200
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2018-06-04 17:02:12 +0200
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2018-06-04 17:02:12 +0200
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2018-06-04 17:02:12 +0200
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2018-06-04 17:02:12 +0200
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2018-06-04 17:02:12 +0200
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2018-06-04 17:02:12 +0200
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2018-06-04 17:02:12 +0200
+Started GET "/apipie" for 127.0.0.1 at 2018-06-04 17:04:39 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Apipie::ApipiesController#index as HTML
+  Rendering /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie
+  Rendered /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/_languages.erb (1.4ms)
+  Rendered /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/index.html.erb within layouts/apipie/apipie (12.5ms)
+Completed 200 OK in 141ms (Views: 29.3ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2018-06-04 17:04:39 +0200
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2018-06-04 17:04:39 +0200
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2018-06-04 17:04:39 +0200
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2018-06-04 17:04:39 +0200
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2018-06-04 17:04:39 +0200
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2018-06-04 17:04:39 +0200
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2018-06-04 17:04:39 +0200
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2018-06-04 17:04:40 +0200
+Started GET "/apipie/1.0/schools/create.en.html" for 127.0.0.1 at 2018-06-04 17:04:42 +0200
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"schools", "method"=>"create.en.html"}
+  Rendering /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/apipie_404.html.erb within layouts/apipie/apipie
+  Rendered /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/apipie_404.html.erb within layouts/apipie/apipie (1.0ms)
+Completed 404 Not Found in 64ms (Views: 11.6ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2018-06-04 17:04:42 +0200
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2018-06-04 17:04:42 +0200
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2018-06-04 17:04:42 +0200
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2018-06-04 17:04:42 +0200
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2018-06-04 17:04:42 +0200
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2018-06-04 17:04:42 +0200
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2018-06-04 17:04:42 +0200
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2018-06-04 17:04:43 +0200
+Started GET "/apipie/1.0/schools/create.en.html" for 127.0.0.1 at 2018-06-04 17:04:57 +0200
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"schools", "method"=>"create.en.html"}
+  Rendering /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/apipie_404.html.erb within layouts/apipie/apipie
+  Rendered /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/apipie_404.html.erb within layouts/apipie/apipie (1.2ms)
+Completed 404 Not Found in 87ms (Views: 13.8ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2018-06-04 17:04:57 +0200
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2018-06-04 17:04:57 +0200
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2018-06-04 17:04:57 +0200
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2018-06-04 17:04:57 +0200
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2018-06-04 17:04:57 +0200
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2018-06-04 17:04:57 +0200
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2018-06-04 17:04:57 +0200
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2018-06-04 17:04:57 +0200
+Started GET "/apipie/1.0/schools/create.en.html" for 127.0.0.1 at 2018-06-04 17:04:59 +0200
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"schools", "method"=>"create.en.html"}
+  Rendering /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/apipie_404.html.erb within layouts/apipie/apipie
+  Rendered /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/apipie_404.html.erb within layouts/apipie/apipie (0.8ms)
+Completed 404 Not Found in 74ms (Views: 12.0ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2018-06-04 17:04:59 +0200
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2018-06-04 17:04:59 +0200
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2018-06-04 17:04:59 +0200
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2018-06-04 17:04:59 +0200
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2018-06-04 17:04:59 +0200
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2018-06-04 17:04:59 +0200
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2018-06-04 17:04:59 +0200
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2018-06-04 17:04:59 +0200
+Started GET "/apipie/1.0/schools/create.en.html" for 127.0.0.1 at 2018-06-04 17:05:01 +0200
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"schools", "method"=>"create.en.html"}
+  Rendering /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/apipie_404.html.erb within layouts/apipie/apipie
+  Rendered /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/apipie_404.html.erb within layouts/apipie/apipie (0.8ms)
+Completed 404 Not Found in 52ms (Views: 11.2ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2018-06-04 17:05:01 +0200
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2018-06-04 17:05:01 +0200
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2018-06-04 17:05:01 +0200
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2018-06-04 17:05:01 +0200
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2018-06-04 17:05:01 +0200
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2018-06-04 17:05:01 +0200
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2018-06-04 17:05:01 +0200
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2018-06-04 17:05:01 +0200
+Started GET "/apipie/1.0/schools/create.en.html" for 127.0.0.1 at 2018-06-04 17:05:28 +0200
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"schools", "method"=>"create.en.html"}
+  Rendering /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/apipie_404.html.erb within layouts/apipie/apipie
+  Rendered /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/apipie_404.html.erb within layouts/apipie/apipie (0.8ms)
+Completed 404 Not Found in 62ms (Views: 11.9ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2018-06-04 17:05:28 +0200
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2018-06-04 17:05:28 +0200
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2018-06-04 17:05:28 +0200
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2018-06-04 17:05:28 +0200
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2018-06-04 17:05:28 +0200
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2018-06-04 17:05:28 +0200
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2018-06-04 17:05:28 +0200
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2018-06-04 17:05:28 +0200
+Started GET "/apipie/1.0/schools/create.html" for 127.0.0.1 at 2018-06-04 17:05:52 +0200
+Processing by Apipie::ApipiesController#index as HTML
+  Parameters: {"version"=>"1.0", "resource"=>"schools", "method"=>"create.html"}
+  Rendering /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie
+  Rendered /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/_languages.erb (0.4ms)
+  Rendered /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/_params.html.erb (2.3ms)
+  Rendered /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/_headers.html.erb (1.0ms)
+  Rendered /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/_method_detail.erb (15.6ms)
+  Rendered /Users/Alexandre/.rvm/gems/ruby-2.4.1/gems/apipie-rails-0.5.8/app/views/apipie/apipies/method.html.erb within layouts/apipie/apipie (26.4ms)
+Completed 200 OK in 81ms (Views: 38.8ms)
+
+
+Started GET "/apipie/stylesheets/bundled/bootstrap.min.css" for 127.0.0.1 at 2018-06-04 17:05:52 +0200
+Started GET "/apipie/stylesheets/bundled/bootstrap-responsive.min.css" for 127.0.0.1 at 2018-06-04 17:05:52 +0200
+Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2018-06-04 17:05:52 +0200
+Started GET "/apipie/stylesheets/application.css" for 127.0.0.1 at 2018-06-04 17:05:52 +0200
+Started GET "/apipie/javascripts/bundled/jquery.js" for 127.0.0.1 at 2018-06-04 17:05:52 +0200
+Started GET "/apipie/javascripts/bundled/bootstrap-collapse.js" for 127.0.0.1 at 2018-06-04 17:05:52 +0200
+Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2018-06-04 17:05:52 +0200
+Started GET "/apipie/stylesheets/bundled/prettify.css" for 127.0.0.1 at 2018-06-04 17:05:53 +0200
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RenameColumnLongitude (20180606100021)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RenameColumnLongitude (20180606100021)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RenameColumnLongitude (20180606100021)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aschools" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "name" varchar DEFAULT NULL, "address" varchar DEFAULT NULL, "zip_code" varchar DEFAULT NULL, "city" varchar DEFAULT NULL, "openings" varchar DEFAULT NULL, "phone" varchar DEFAULT NULL, "email" varchar DEFAULT NULL, "nb_student" integer DEFAULT NULL, "status" varchar DEFAULT NULL, "latitude" float DEFAULT NULL, "longitude" float DEFAULT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "aschools" ("id","created_at","updated_at","name","address","zip_code","city","openings","phone","email","nb_student","status","latitude","longitude")
+                     SELECT "id","created_at","updated_at","name","address","zip_code","city","openings","phone","email","nb_student","status","latitude","longtitude" FROM "schools"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "schools"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "schools" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "name" varchar DEFAULT NULL, "address" varchar DEFAULT NULL, "zip_code" varchar DEFAULT NULL, "city" varchar DEFAULT NULL, "openings" varchar DEFAULT NULL, "phone" varchar DEFAULT NULL, "email" varchar DEFAULT NULL, "nb_student" integer DEFAULT NULL, "status" varchar DEFAULT NULL, "latitude" float DEFAULT NULL, "longitude" float DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schools" ("id","created_at","updated_at","name","address","zip_code","city","openings","phone","email","nb_student","status","latitude","longitude")
+                     SELECT "id","created_at","updated_at","name","address","zip_code","city","openings","phone","email","nb_student","status","latitude","longitude" FROM "aschools"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aschools"[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180606100021"]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schools" ("created_at", "updated_at", "name", "address", "zip_code", "city", "openings", "phone", "email", "nb_student", "status", "latitude", "longitude") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-06-06 11:58:19.384184"], ["updated_at", "2018-06-06 11:58:19.384184"], ["name", "Ecole primaire Michel Servet"], ["address", "2-6 Rue Alsace Lorraine"], ["zip_code", "69001"], ["city", "Lyon"], ["openings", "8H-18h"], ["phone", "0472429057"], ["email", "ecole-servet@ecole.fr"], ["nb_student", 350], ["status", "public"], ["latitude", 45.7720199], ["longitude", 4.8368897999999945]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schools" ("created_at", "updated_at", "name", "address", "zip_code", "city", "openings", "phone", "email", "nb_student", "status", "latitude", "longitude") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-06-06 11:58:19.388445"], ["updated_at", "2018-06-06 11:58:19.388445"], ["name", "OGEC GROUPE SCOLAIRE SAINT DENIS"], ["address", "7 Rue Hénon"], ["zip_code", "69004"], ["city", "Lyon"], ["openings", "8H-18h"], ["phone", "0472424417"], ["email", "ecole-ogec@ecole.fr"], ["nb_student", 100], ["status", "public"], ["latitude", 45.779445], ["longitude", 4.831833999999958]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schools" ("created_at", "updated_at", "name", "address", "zip_code", "city", "openings", "phone", "email", "nb_student", "status", "latitude", "longitude") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-06-06 11:58:19.391534"], ["updated_at", "2018-06-06 11:58:19.391534"], ["name", "Ecole Primaire Privée Saint Sacrement"], ["address", "15 Rue Etienne Dolet"], ["zip_code", "69003"], ["city", "Lyon"], ["openings", "8H-18h"], ["phone", "0472209000"], ["email", "ecole-sacrement@ecole.fr"], ["nb_student", 250], ["status", "private"], ["latitude", 45.757568], ["longitude", 4.851882]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schools" ("created_at", "updated_at", "name", "address", "zip_code", "city", "openings", "phone", "email", "nb_student", "status", "latitude", "longitude") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-06-06 11:58:19.394898"], ["updated_at", "2018-06-06 11:58:19.394898"], ["name", "Ecole maternelle publique Anatole France"], ["address", "15 Rue Louis"], ["zip_code", "69003"], ["city", "Lyon"], ["openings", "8H-18h"], ["phone", "0472333612"], ["email", "ecole-anatole@ecole.fr"], ["nb_student", 50], ["status", "private"], ["latitude", 45.7528455], ["longitude", 4.888221499999986]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schools" ("created_at", "updated_at", "name", "address", "zip_code", "city", "openings", "phone", "email", "nb_student", "status", "latitude", "longitude") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-06-06 11:58:19.398313"], ["updated_at", "2018-06-06 11:58:19.398313"], ["name", "Ecole maternelle Condorcet"], ["address", "37 Rue Jules Massenet"], ["zip_code", "69003"], ["city", "Lyon"], ["openings", "8H-18h"], ["phone", "0472719052"], ["email", "ecole-condorcet@ecole.fr"], ["nb_student", 280], ["status", "public"], ["latitude", 45.7482793], ["longitude", 4.8924376999999595]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schools" ("created_at", "updated_at", "name", "address", "zip_code", "city", "openings", "phone", "email", "nb_student", "status", "latitude", "longitude") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-06-06 11:58:19.401058"], ["updated_at", "2018-06-06 11:58:19.401058"], ["name", "Ecole Maternelle Audrey Hepburn"], ["address", "8 Rue Tissot"], ["zip_code", "69009"], ["city", "Lyon"], ["openings", "8H-18h"], ["phone", "0472604911"], ["email", "ecole-hepburn@ecole.fr"], ["nb_student", 150], ["status", "public"], ["latitude", 45.7766122], ["longitude", 4.80246360000001]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schools" ("created_at", "updated_at", "name", "address", "zip_code", "city", "openings", "phone", "email", "nb_student", "status", "latitude", "longitude") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2018-06-06 11:58:19.404510"], ["updated_at", "2018-06-06 11:58:19.404510"], ["name", "École élémentaire"], ["address", "2-6 Rue Alsace Lorraine"], ["zip_code", "69001"], ["city", "Lyon"], ["openings", "8H-18h"], ["phone", "0472452399"], ["email", "ecole-alsace@ecole.fr"], ["nb_student", 80], ["status", "public"], ["latitude", 45.7488929], ["longitude", 45.7488929]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (2.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@ynov.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
